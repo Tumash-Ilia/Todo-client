@@ -16,9 +16,9 @@ function App() {
       <AuthContext.Provider value={{login, logout, token, userId, isReady, isLogin}}>
           <div className="app">
               <BrowserRouter>
+                    <div> <Navbar /></div>
+                 <div>{routes}</div>
 
-                  <Navbar />
-                  {routes}
 
               </BrowserRouter>
           </div>
