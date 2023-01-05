@@ -21,11 +21,11 @@ const MainPage = (url, config) => {
     const [todoID, setID] = useState(-1);
     // const [showJson, setShowJson] = React.useState(false)
     // const [jsonText, setjsonText] = useState([])
-
+    const URL = "https://todo-tumash-server.herokuapp.com"
 
     const getTodo = useCallback(async () => {
         try {
-            await axios.get('/api/todo/', {
+            await axios.get(URL + '/api/todo/', {
                 headers: {'Content-Type': 'application/json'},
                 params: {userId}
             })
@@ -40,7 +40,7 @@ const MainPage = (url, config) => {
     const createTodo = useCallback(async () => {
         if (!text) return null
         try {
-            await axios.post('/api/todo/add', {
+            await axios.post(URL +'/api/todo/add', {
                 text, userId,
                 headers: {'Content-Type': 'application/json'}
             })
@@ -57,7 +57,7 @@ const MainPage = (url, config) => {
 
     const removeTodos = useCallback(async (id) => {
         try {
-            await axios.delete(`/api/todo/delete/${id}`, {id}, {
+            await axios.delete(URL + `/api/todo/delete/${id}`, {id}, {
                 headers: {'Content-Type': 'application/json'}
             })
                 .then(() => getTodo())
@@ -69,7 +69,7 @@ const MainPage = (url, config) => {
 
     const completeTodo = useCallback(async (id) => {
         try {
-            await axios.put(`/api/todo/complete/${id}`, {id}, {
+            await axios.put(URL + `/api/todo/complete/${id}`, {id}, {
                 headers: {'Content-Type': 'application/json'}
             })
                 .then(response => {
@@ -83,7 +83,7 @@ const MainPage = (url, config) => {
 
     const importantTodo = useCallback(async (id) => {
         try {
-            await axios.put(`/api/todo/important/${id}`, {id}, {
+            await axios.put(URL + `/api/todo/important/${id}`, {id}, {
                 headers: {'Content-Type': 'application/json'}
             })
                 .then(response => {
@@ -102,7 +102,7 @@ const MainPage = (url, config) => {
 
     const getByID = useCallback(async (id) => {
         try {
-            await axios.get(`/api/todo/get/${id}`, {
+            await axios.get(URL + `/api/todo/get/${id}`, {
                 headers: {'Content-Type': 'application/json'},
             })
                 .then(response => {
@@ -144,7 +144,7 @@ const MainPage = (url, config) => {
         try {
 
             if (!text) return swal("Enter new titile in Task field")
-            await axios.put(`/api/todo/update/${id}`, {text}, {
+            await axios.put(URL + `/api/todo/update/${id}`, {text}, {
                 headers: {'Content-Type': 'application/json'}
             })
                 .then((response) => {
@@ -164,7 +164,7 @@ const MainPage = (url, config) => {
      */
     const getCompleted = useCallback(async () => {
         try {
-            await axios.get('/api/todo/completed', {
+            await axios.get(URL + '/api/todo/completed', {
                 headers: {'Content-Type': 'application/json'},
                 params: {userId}
             })
@@ -180,7 +180,7 @@ const MainPage = (url, config) => {
      */
     const getUncompleted = useCallback(async () => {
         try {
-            await axios.get('/api/todo/uncompleted', {
+            await axios.get(URL + '/api/todo/uncompleted', {
                 headers: {'Content-Type': 'application/json'},
                 params: {userId}
             })
@@ -191,7 +191,7 @@ const MainPage = (url, config) => {
     }, [userId])
 
     const openInNewTab = userId => {
-        var url = "http://localhost:8000/api/todo/?userId=" + userId
+        var url = URL + "/api/todo/?userId=" + userId
         window.open(url, '_blank', 'noopener,noreferrer');
     };
 

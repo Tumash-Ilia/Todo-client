@@ -7,7 +7,7 @@ import {AuthContext} from "../../context/AuthContext";
 
 
 const AuthPage = () => {
-
+    const URL = "https://todo-tumash-server.herokuapp.com"
 
     const [form, setForm] = useState({
         email:'',
@@ -22,7 +22,7 @@ const AuthPage = () => {
     
     const registerHandler = async () => {
       try{
-        await axios.post('/api/auth/registration', {...form}, {
+        await axios.post(URL + '/api/auth/registration', {...form}, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -39,7 +39,7 @@ const AuthPage = () => {
     
     const loginHandler = async () => {
       try{
-          await axios.post('/api/auth/login', {...form}, {
+          await axios.post(URL + '/api/auth/login', {...form}, {
               headers: {
                   'Content-Type': 'application/json'
               }
