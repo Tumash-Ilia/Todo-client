@@ -1,7 +1,7 @@
 import React from "react"
 import './App.scss'
 import Navbar from "./components/Navbar/Navbar"
-import {BrowserRouter} from "react-router-dom"
+import {BrowserRouter, Switch} from "react-router-dom"
 import {useRoutes} from "./routes"
 import {AuthContext} from "./context/AuthContext"
 import  {useAuth} from "./hooks/auth.hook"
@@ -16,8 +16,10 @@ function App() {
       <AuthContext.Provider value={{login, logout, token, userId, isReady, isLogin}}>
           <div className="app">
               <BrowserRouter>
+                  <Switch>
                   <Navbar />
                   {routes}
+                  </Switch>
               </BrowserRouter>
           </div>
       </AuthContext.Provider>
