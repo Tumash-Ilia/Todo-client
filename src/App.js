@@ -16,10 +16,10 @@ function App() {
       <AuthContext.Provider value={{login, logout, token, userId, isReady, isLogin}}>
           <div className="app">
               <BrowserRouter>
-                  <Switch>
+
                   <Navbar />
                   {routes}
-                  </Switch>
+
               </BrowserRouter>
           </div>
       </AuthContext.Provider>
