@@ -1,8 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .auth-page {
   max-width: 600px;
-  margin: 150px auto 0;
+  margin: 150px auto 200px;
   .btn-reg {
     margin-left: 25px;
   }
+}
+
+html,
+body {
+  min-height: 100%;
 }
 

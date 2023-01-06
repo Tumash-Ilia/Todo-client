@@ -5,6 +5,7 @@ import {BrowserRouter, Switch} from "react-router-dom"
 import {useRoutes} from "./routes"
 import {AuthContext} from "./context/AuthContext"
 import  {useAuth} from "./hooks/auth.hook"
+import Footer from "./components/Footer/Footer";
 
 function App() {
 
@@ -18,8 +19,7 @@ function App() {
               <BrowserRouter>
                   <Navbar />
                  {routes}
-
-
+                  <Footer />
               </BrowserRouter>
           </div>
       </AuthContext.Provider>
