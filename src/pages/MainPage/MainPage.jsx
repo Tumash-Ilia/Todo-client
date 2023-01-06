@@ -196,7 +196,7 @@ const MainPage = (url, config) => {
 
     const openInNewTab = useCallback(async () => {
         try {
-            await axios.get('/api/todo/', {
+            await axios.get(URL + '/api/todo/', {
                 headers: {'Content-Type': 'application/json'},
                 params: {userId}
             })
