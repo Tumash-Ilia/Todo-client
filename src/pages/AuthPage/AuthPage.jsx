@@ -64,6 +64,7 @@ const AuthPage = () => {
                                    <div className="row">
                                        <div className="input-field col s12">
                                            <input
+                                           	   id="email"
                                                type="email"
                                                name="email"
                                                className="validate"
@@ -73,6 +74,7 @@ const AuthPage = () => {
                                        </div>
                                        <div className="input-field col s12">
                                            <input
+                                               id="password"
                                                type="password"
                                                name="password"
                                                className="validate"
