@@ -194,21 +194,12 @@ const MainPage = (url, config) => {
         }
     }, [userId])
 
-    const openInNewTab = useCallback(async () => {
-        try {
-            await axios.get(URL + '/api/todo/', {
-                headers: {'Content-Type': 'application/json'},
-                params: {userId}
-            })
-                .then(response => {
-                    let resp = JSON.stringify(response.data);
-                    var myWindow = window.open("", "response", "resizable=yes");
-                    myWindow.document.write(resp);
-                })
-        } catch (e) {
-            console.log(e)
-        }
-    }, [userId])
+
+
+        const openInNewTab = userId => {
+        var url =  URL + "/api/todo/json/?userId=" + userId
+        window.open(url, '_blank', 'noopener,noreferrer');
+    };
 
 
     return (
